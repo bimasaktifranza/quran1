@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
-// Spinner loading
 const Spinner = () => (
   <div className="flex justify-center items-center py-10">
     <div className="w-10 h-10 border-4 border-emerald-400 border-dotted rounded-full animate-spin"></div>
   </div>
 );
 
-// Fungsi konversi angka ke Arab
+
 const convertToArabicNumber = (number) => {
   const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
   return number.toString().split("").map(d => arabicDigits[parseInt(d)]).join("");
@@ -25,7 +24,6 @@ function Juz() {
   useEffect(() => {
     setLoading(true);
 
-    // Ambil ayat-ayat berdasarkan juz
     fetch(`https://api.quran.com/api/v4/quran/verses/uthmani?juz_number=${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -33,7 +31,6 @@ function Juz() {
         setLoading(false);
       });
 
-    // Ambil daftar surat
     fetch("https://api.quran.com/api/v4/chapters")
       .then((res) => res.json())
       .then((data) => {
@@ -49,7 +46,6 @@ function Juz() {
       });
   }, [id]);
 
-  // Grup ayat berdasarkan nomor surat
   const groupBySurah = (verses) => {
     const grouped = {};
     verses.forEach((verse) => {
