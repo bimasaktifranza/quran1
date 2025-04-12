@@ -61,7 +61,7 @@ function Juz() {
       <header className="text-center mb-8">
         <h1 className="text-3xl md:text-5xl font-bold text-emerald-200 mb-2">📖 Juz {id}</h1>
         <p className="text-emerald-300 italic text-sm md:text-lg">
-          "Dan Kami telah mudahkan Al-Qur'an untuk peringatan."
+          "Dan Kami telah turunkan Al-Qur'an sebagai peringatan."
         </p>
         <button
           onClick={() => navigate("/juz")}
